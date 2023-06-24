@@ -22,7 +22,7 @@ void MyRect::update(CPoint point) {
 
 
 CRect MyRect::getBorder() {
-	return CRect(point1, point2 + CPoint(1, 1));
+	return CRect(point1, point2);
 }
 
 

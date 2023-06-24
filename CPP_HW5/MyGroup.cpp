@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "MyGroup.h"
 
-MyGroup::MyGroup(const CList<MyShape*>& children_) : MyShape(CPoint(0, 0)) {
-	POSITION pos = children_.GetHeadPosition();
+MyGroup::MyGroup(const CList<MyShape*>& selected) : MyShape(CPoint(0, 0)) {
+	POSITION pos = selected.GetHeadPosition();
 	while (pos) {
-		children.AddTail(children_.GetNext(pos));
+		children.AddTail(selected.GetNext(pos));
 	}
 }
 
@@ -53,8 +53,8 @@ void MyGroup::move(CPoint point) {
 }
 
 
-void MyGroup::ungroup(CList<MyShape*>& children_) {
+void MyGroup::ungroup(CList<MyShape*>& selected) {
 	POSITION pos = children.GetHeadPosition();
 	while (pos) 
-		children_.AddTail(children.GetNext(pos));
+		selected.AddTail(children.GetNext(pos));
 }
